@@ -89,11 +89,6 @@ header nav .burger .line {
   .logo a img {
     width: 50px;
   }
-  nav .burger {
-    display: block;
-    flex-direction: column;
-    cursor: pointer;
-  }
   nav .nav-links {
     display: none;
     flex-direction: column;
@@ -106,29 +101,19 @@ header nav .burger .line {
     z-index: 1000;
     padding: 14px;
   }
-  nav .nav-links.active {
-    display: flex;
-  }
-  nav .nav-links .nav-links.active {
+  nav .nav-links.active .nav-links {
     display: flex;
   }
   nav .burger {
     display: flex;
+    flex-direction: column;
+    cursor: pointer;
   }
   nav .burger.active {
     display: flex;
   }
   nav .burger li {
     margin: 10px 0;
-  }
-}
-@media (max-width: 390px) {
-  .products {
-    flex-direction: column;
-    align-items: center;
-  }
-  .products .product {
-    max-width: 100%;
   }
 }
 footer {
