@@ -88,6 +88,10 @@ main.section {
   font-size: 16px;
 }
 
+.email {
+  padding-top: 16px;
+}
+
 @media (max-width: 1024px) {
   .header h1 {
     font-size: 49px;
