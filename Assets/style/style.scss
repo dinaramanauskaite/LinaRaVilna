@@ -1,0 +1,247 @@
+/* General body styles */
+body { 
+  font-family: 'Maitree', serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  
+  h1 {
+      font-family: "Maitree", serif;
+      font-size: 68px;
+      line-height: 1.2;
+  }
+}
+
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 70px;
+  border-bottom: 1px solid black;
+
+  .logo img {
+      width: 80px;
+      padding: 0;
+  }
+
+  nav {
+      .nav-links {
+          list-style: none; 
+          display: flex;
+          gap: 70px;
+      
+          li {
+              position: relative;
+      
+              a {
+                  text-decoration: none;
+                  color: black;
+      
+                  &:hover {
+                      text-decoration: underline;
+                  }
+              }
+      
+              /* Dropdown menu for desktop */
+              .dropdown {
+                  display: none; 
+                  position: absolute;
+                  top: 100%;
+                  left: 0;
+                  background-color: white;
+                  list-style: none;
+                  padding-top: 16px;
+                  margin: 0;
+                  min-width: 170px;
+                  z-index: 1000;
+                  border-radius: 8px;
+
+                  li {
+                      padding: 4px;
+
+                      a {
+                          padding: 16px 4px;
+                          display: block;
+                          color: black;
+                          text-decoration: none;
+
+                          &:hover {
+                              text-decoration: underline;
+                          }
+                      }
+                  }
+              }
+
+              /* Show dropdown on hover for desktop */
+              &:hover .dropdown {
+                  display: block;
+              }
+          }
+      }
+  }
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 810px) {
+header {
+  position: relative;
+}
+
+/* Show hamburger only on mobile */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute; 
+  right: 20px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  z-index: 1001; 
+  transition: all 0.3s ease;
+
+  .line {
+    width: 40px;
+    height: 2.5px;
+    background-color: black;
+    margin: 4px;
+    transition: all 0.3s ease;
+  }
+}
+
+/* Hamburger active state */
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Hide dropdowns for mobile, and show the menu when clicking */
+.nav-links {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform 0.7s ease, opacity 0.7s ease, visibility 0s 0.7s;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  padding: 24px;
+}
+
+.nav-links.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.7s ease, opacity 0.7s ease, visibility 0s;
+}
+
+.nav-links li {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Accordion functionality for dropdown on mobile */
+.nav-links li .dropdown {
+  display: none;
+  flex-direction: column;
+  background-color: #c1bebe;
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.nav-links li.expanded .dropdown {
+  display: flex; /* Display dropdown when expanded */
+}
+
+.nav-links li a {
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+}
+
+
+  
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    background-color: #fff;
+    border-top: 1px solid black;
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 70px;
+    }
+
+    p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 52px;
+
+        a img {
+            width: 40px;
+            
+        }
+    }
+
+@media (max-width: 1024px) {
+        footer {
+            button {
+                margin: 0 auto;
+            }
+        }
+    }
+@media (max-width: 810px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 390px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+
+        .social-icons {
+            margin-top: 10px;
+        }
+    }
+}

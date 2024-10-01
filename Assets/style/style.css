@@ -1,3 +1,4 @@
+/* General body styles */
 body {
   font-family: "Maitree", serif;
   margin: 0;
@@ -11,6 +12,7 @@ body h1 {
   line-height: 1.2;
 }
 
+/* Header styles */
 header {
   display: flex;
   justify-content: space-between;
@@ -29,6 +31,8 @@ header nav .nav-links {
 }
 header nav .nav-links li {
   position: relative;
+  /* Dropdown menu for desktop */
+  /* Show dropdown on hover for desktop */
 }
 header nav .nav-links li a {
   text-decoration: none;
@@ -65,55 +69,90 @@ header nav .nav-links li .dropdown li a:hover {
 header nav .nav-links li:hover .dropdown {
   display: block;
 }
-header nav .burger {
-  display: none;
-  cursor: pointer;
-}
-header nav .burger .line {
-  width: 24px;
-  height: 4px;
-  background-color: black;
-  margin: 4px;
-  transition: all 0.3s ease;
-}
 
-@media (max-width: 1024px) {
-  .hero h1 {
-    font-size: 49px;
-  }
-  .products .product img {
-    max-width: 344px;
-  }
-}
+/* Media Query for Mobile Screens */
 @media (max-width: 810px) {
-  .logo a img {
-    width: 50px;
+  header {
+    position: relative;
   }
-  nav .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #fff;
-    position: absolute;
-    top: 24px;
-    right: 0px;
-    width: 170px;
-    border-radius: 0px 0px 0px 8px;
-    z-index: 1000;
-    padding: 14px;
-  }
-  nav .nav-links.active .nav-links {
-    display: flex;
-  }
-  nav .burger {
+  /* Show hamburger only on mobile */
+  .hamburger {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    transition: all 0.3s ease;
   }
-  nav .burger.active {
-    display: flex;
+  .hamburger .line {
+    width: 40px;
+    height: 2.5px;
+    background-color: black;
+    margin: 4px;
+    transition: all 0.3s ease;
   }
-  nav .burger li {
-    margin: 10px 0;
+  /* Hamburger active state */
+  .hamburger.active .line:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  .hamburger.active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+  /* Hide dropdowns for mobile, and show the menu when clicking */
+  .nav-links {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.7s ease, opacity 0.7s ease, visibility 0s 0.7s;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    padding: 24px;
+  }
+  .nav-links.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.7s ease, opacity 0.7s ease, visibility 0s;
+  }
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+  /* Accordion functionality for dropdown on mobile */
+  .nav-links li .dropdown {
+    display: none;
+    flex-direction: column;
+    background-color: #c1bebe;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .nav-links li.expanded .dropdown {
+    display: flex; /* Display dropdown when expanded */
+  }
+  .nav-links li a {
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
   }
 }
 footer {
@@ -129,7 +168,7 @@ footer .footer-content {
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 100px;
+  gap: 70px;
 }
 footer p {
   margin: 0;
