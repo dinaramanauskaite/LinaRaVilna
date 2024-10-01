@@ -13,13 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
   navItems.forEach(item => {
       item.addEventListener("click", () => {
           if (window.innerWidth <= 810) { // Only for mobile screens
-              item.classList.toggle("expanded"); // Toggle the expanded class to show/hide the dropdown
+              // Check if this item is already expanded
+              const isExpanded = item.classList.contains('expanded');
+
+              // Close all other dropdowns
+              navItems.forEach(navItem => {
+                  navItem.classList.remove('expanded');
+              });
+
+              // Toggle the clicked item
+              if (!isExpanded) {
+                  item.classList.add('expanded');
+              }
           }
       });
   });
 });
-
-
 
   
     document.querySelector('form').addEventListener('submit', function (e) {
