@@ -134,3 +134,27 @@ main.section {
 
     }
 }
+
+.info1-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    h2 {
+        margin: 50px;  
+        font-size: 32px;
+    line-height: 1.3;
+    width: 69%;
+    }
+}
+.info1 {
+    display: flex;
+    justify-content: center;
+    
+    
+    .images-container img{
+        width: 420px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-left: 15px;
+    }
+}

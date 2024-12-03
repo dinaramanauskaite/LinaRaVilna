@@ -127,4 +127,27 @@ main.section {
     gap: 10px;
     font-size: 14px;
   }
+}
+.info1-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.info1-text h2 {
+  margin: 50px;
+  font-size: 32px;
+  line-height: 1.3;
+  width: 69%;
+}
+
+.info1 {
+  display: flex;
+  justify-content: center;
+}
+.info1 .images-container img {
+  width: 420px;
+  border-radius: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-left: 15px;
 }/*# sourceMappingURL=uzsisakyti.css.map */
